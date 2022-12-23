@@ -1,0 +1,64 @@
+import time
+
+from selenium import webdriver
+
+from selenium.webdriver.common.by import By
+
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Chrome(executable_path="C:/Users/loicc/PycharmProjects/ControleChrome/chromedriver.exe")
+
+driver.get("https://www.google.com/") # aller sur google
+
+time.sleep(1)
+
+driver.find_element(By.ID, "L2AGLb").click() # cliquer sur la barre de recherche
+
+time.sleep(1)
+
+input = driver.find_element(By.CLASS_NAME, "gLFyf") # définir la barre de recherche
+
+time.sleep(1)
+
+
+input.send_keys("prix BTC") # y taper "prix BTC"
+
+time.sleep(1)
+
+input.send_keys(Keys.ENTER) # cliquer sur entrer
+
+time.sleep(1)
+
+prix = driver.find_element(By.CLASS_NAME, "pclqee") # définir le prix du BTC
+
+time.sleep(1)
+
+print("Le prix d'un Bitcoin est de " + prix.text + " euros.")
+
+time.sleep(1)
+
+driver.find_element(By.CLASS_NAME, "ExCKkf").click() # cliquer sur supprimer
+
+time.sleep(1)
+
+driver.find_element(By.NAME, "q").click() # cliquer sur la barre de recherche
+
+time.sleep(1)
+
+input2 = driver.find_element(By.NAME, "q") # redéfinir la barre de recherche
+
+time.sleep(1)
+
+input2.send_keys("prix ETH") # y taper "prix ETH"
+
+time.sleep(1)
+
+input2.send_keys(Keys.ENTER)
+
+time.sleep(1)
+
+prix2 = driver.find_element(By.CLASS_NAME, "pclqee")
+
+time.sleep(1)
+
+print("Le prix d'un Ethereum est de " + prix2.text + " euros.")
